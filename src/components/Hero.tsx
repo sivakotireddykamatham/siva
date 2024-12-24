@@ -1,6 +1,16 @@
 import { ArrowDownToLine } from "lucide-react";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 const Hero = () => {
+  const titles = [
+    "Software Engineer",
+    "Full Stack Developer",
+    "Backend Developer",
+    "Frontend Developer"
+  ];
+  
+  const currentTitle = useTypewriter(titles, 100, 2000);
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,7 +18,10 @@ const Hero = () => {
           <h1 className="text-5xl sm:text-6xl font-bold">
             Hi, I'm <span className="text-primary">Siva</span>
           </h1>
-          <h2 className="text-3xl sm:text-4xl font-medium">Full Stack Developer</h2>
+          <h2 className="text-3xl sm:text-4xl font-medium h-[40px]">
+            {currentTitle}
+            <span className="animate-pulse">|</span>
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl">
             Specializing in Java, Python, AWS, and Full-Stack Development
           </p>
