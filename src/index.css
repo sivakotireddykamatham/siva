@@ -31,9 +31,25 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground bg-gradient-to-br from-[#0A1929] via-[#0F2942] to-[#1A3D5C];
+    @apply bg-background text-foreground;
+    background: linear-gradient(to bottom right, #0A1929, #1A3D5C);
+    position: relative;
     min-height: 100vh;
     background-attachment: fixed;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(62, 120, 255, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(91, 77, 255, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(66, 153, 225, 0.08) 0%, transparent 60%);
+    pointer-events: none;
   }
 }
 
