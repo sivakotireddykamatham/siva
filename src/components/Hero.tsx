@@ -11,6 +11,20 @@ const Hero = () => {
   
   const currentTitle = useTypewriter(titles, 100, 2000);
 
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleDownloadResume = () => {
+    // For now, we'll just log that the resume download was triggered
+    console.log('Resume download triggered');
+    // In a real implementation, you would trigger the download of an actual PDF file
+    // window.open('/path-to-your-resume.pdf', '_blank');
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,13 +40,22 @@ const Hero = () => {
             Specializing in Java, Python, AWS, and Full-Stack Development
           </p>
           <div className="flex space-x-4 mt-8">
-            <button className="px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors">
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            >
               Let's Talk
             </button>
-            <button className="px-6 py-3 rounded-md border border-primary text-primary hover:bg-primary/10 transition-colors">
+            <button 
+              onClick={() => scrollToSection('experience')}
+              className="px-6 py-3 rounded-md border border-primary text-primary hover:bg-primary/10 transition-colors"
+            >
               View Experience
             </button>
-            <button className="px-6 py-3 rounded-md border border-border hover:bg-accent transition-colors flex items-center space-x-2">
+            <button 
+              onClick={handleDownloadResume}
+              className="px-6 py-3 rounded-md border border-border hover:bg-accent transition-colors flex items-center space-x-2"
+            >
               <ArrowDownToLine className="w-4 h-4" />
               <span>Resume</span>
             </button>
