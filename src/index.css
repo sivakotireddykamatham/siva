@@ -31,7 +31,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground bg-gradient-to-br from-[#0A1929] via-[#0F2942] to-[#1A3D5C];
+    min-height: 100vh;
+    background-attachment: fixed;
   }
 }
 
